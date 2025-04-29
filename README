@@ -1,0 +1,32 @@
+CryptoMonitor - Resumo Técnico
+Aplicativo Android que exibe a cotação atual do Bitcoin utilizando dados da API Mercado Bitcoin.
+
+Estrutura do Projeto
+1. MainActivity.kt (Tela Principal)
+Função: Controla a interface do usuário.
+
+O que faz:
+- Exibe o valor e a data da última cotação do Bitcoin.
+- Permite atualização manual via botão.
+- Trata erros de conexão e exibe mensagens.
+
+2. MercadoBitcoinService.kt (Interface da API)
+Função: Define as chamadas HTTP.
+
+O que faz:
+- Declara a função getTicker() para buscar dados no endpoint /api/BTC/ticker/.
+- Utiliza suspend para chamadas assíncronas com Retrofit.
+
+3. MercadoBitcoinServiceFactory.kt (Configuração Retrofit)
+Função: Cria e configura o cliente HTTP.
+
+O que faz:
+- Define a URL base (https://www.mercadobitcoin.net/).
+- Usa GsonConverterFactory para converter JSON em objetos Kotlin.
+
+4. TickerResponse.kt (Modelo de Dados)
+Função: Representa a estrutura da resposta da API.
+
+O que faz:
+- Contém classes TickerResponse e Ticker para mapear os dados recebidos (preço, volume, data etc).
+
